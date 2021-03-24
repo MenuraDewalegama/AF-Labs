@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LAB 1</title>
+</head>
+<body>
+
+    <script type="text/javascript">
+
+        //creating a function
+        function hello(){
+            console.log('Hello');
+        };
+        hello();
+
+
+        //1
+        //creating a function as a variable
+        let helloFunction = function (){
+            console.log('Hello World!');
+        };
+        helloFunction();
+
+        //passing function
+        function executor(func){
+            func();
+        }
+        executor(hello);
+
+
+        //2
+        //crating JSON like JavaScript object
+        let ob1 = {
+            name: "Nikki",
+            age: 20,
+
+            print: function(){
+                console.log(this.name,this.age)
+            }
+        }
+        ob1.print();
+
+
+        //3
+        //understanding 'this' keyword
+        var vehicleName = 'Toyota';
+
+        function printName(){
+            console.log(this.vehicleName);
+        }
+        printName();
+
+        var car = {
+            vehicleName: 'Nissan',
+            print1: function(){
+                return printName;
+            }
+        }
+
+        var execute = car.print1();
+        execute = execute.bind(car);
+        execute();
+
+
+        //4
+        function taxCalculator(percentage){
+            return function(amount){
+                return amount * percentage;
+            }
+        }
+        var calculator = taxCalculator(.12);
+        console.log(calculator(200));
+
+
+        //5
+        //function to call JSON placeholder api
+        fetch('http://jsonplaceholder.typicode.com/posts').then(response => response.json()).then(data => console.log(data));
+        console.log('1');
+
+        /*
+        for(var i=0; i<10000; i++){
+            console.log(i);
+        }
+        */
+        //after this for loop data will fetch beacuse js is single threaded
+
+    </script>
+
+</body>
+</html>

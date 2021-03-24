@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LAB 2</title>
+</head>
+<body>
+
+    <script type="text/javascript">
+
+        //3
+        const sayHelloOne = function () {
+            console.log("Hello World");
+        }
+
+        const helloOne = () => {
+            console.log("ES6 function");
+        }
+
+        sayHelloOne();
+        helloOne();
+
+
+
+        const sayHelloTwo = function (param) {
+            console.log(param + " in Regular ");
+        }
+
+        const helloTwo = param => {
+            console.log(param + " ES6 function");
+        }
+
+        sayHelloTwo("Hello");
+        helloTwo("hello");
+
+
+
+
+        const add = function (param1, param2) {
+            return param1 + param2;
+        };
+        const addArrow = (param1,param2) => {
+            return param1 + param2;
+        };
+        console.log(add(2,5));
+        console.log(addArrow(8,5));
+
+
+
+
+        window.name = "Arrow"
+        let data = {
+            name: "Regular",
+            thisArrow: ()=>{
+                console.log(this.name);
+                // console.log(data.name);
+            },
+            thisNormal(){
+                console.log(this.name);
+            }
+        }
+        data.thisArrow();
+        data.thisNormal();
+
+    </script>
+
+</body>
+</html>

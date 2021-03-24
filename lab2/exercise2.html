@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LAB 2</title>
+</head>
+<body>
+
+    <script type="text/javascript">
+
+        // function sayHello() {
+        //     let name = "Anne";
+        // }
+
+        // this will work as class
+        function Hello() {
+            this.name = "Nikki";
+        }
+        let sayHello = new Hello();
+        console.log(sayHello.name);
+
+
+        //2.1
+        function Vehicle(type) {
+            this.type = type;
+            Vehicle.VehicleCount++;
+
+            this.reverse = function (){
+                console.log("Vehicle is reversing");
+            }
+        }
+
+        Vehicle.prototype.drive = function () {
+            console.log("Vehicle is driving");
+        }
+
+        Vehicle.VehicleCount = 0;
+
+        console.log(Vehicle.VehicleCount);
+
+        const vehicle = new Vehicle("Toyota");
+        console.log(Vehicle.VehicleCount);
+        console.log(vehicle.type);
+        vehicle.drive();
+
+        console.log(vehicle);
+
+        function Car(type) {
+            Vehicle.call(this,type)
+        }
+
+        Car.prototype = Object.create(Vehicle.prototype);
+        Car.prototype.constructor = Car;
+
+        Car.prototype.balanceWheel = function () {
+            console.log("Wheels are balanced")
+        }
+
+        const car = new Car("Nissan");
+        console.log(Vehicle.VehicleCount);
+        console.log(car.type);
+        car.balanceWheel();
+
+    </script>
+
+</body>
+</html>

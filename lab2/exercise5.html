@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LAB 2</title>
+</head>
+<body>
+
+    <script type="text/javascript">
+
+        //5
+        //extend, super
+        class Vehicle {
+            static VehicleCount = 0;
+            constructor (type) {
+                this.type = type;
+                Vehicle.VehicleCount++;
+            }
+
+            //this will automatically become prototype
+            drive () {
+                console.log(this.type + " vehicle is driving");
+            }
+        }
+
+        let vehicle = new Vehicle("Toyota");
+        vehicle.drive();
+        console.log(Vehicle.VehicleCount);
+        console.log(vehicle);
+
+        class Car extends Vehicle {
+            constructor(type){
+                super(type);
+            }
+
+            weelBalance(){
+                console.log("Weels are balanced");
+            }
+        }
+
+        let car = new Car("Nissan");
+        car.weelBalance();
+        car.drive();
+        console.log(Car.VehicleCount);
+
+
+
+        /*-----------------------------------------------------------------------------------------------------*/
+
+
+
+        //getters, setters
+        class Square {
+            constructor (length) {
+                this.height = length;
+                this.width = length;
+            }
+
+            // when you create getter it act as a property inside the class
+            get getArea () {
+                return this.width * this.height;
+            }
+
+            set getArea (value) {
+                this.height = Math.sqrt(value);
+                this.width = Math.sqrt(value);
+            }
+
+            area () {
+                return this.width * this.height;
+            }
+
+
+        }
+
+        let s1 = new Square(5);
+        s1.getArea = 64;
+        console.log("Area : " +s1.getArea);
+        console.log(s1);
+
+    </script>
+
+</body>
+</html>
